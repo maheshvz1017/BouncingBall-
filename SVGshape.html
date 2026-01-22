@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Enhanced SVG Animation</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#020617,#0f172a);
+}
+
+svg{
+    width:600px;
+    height:200px;
+}
+
+circle{
+    transform-origin: center;
+    animation: slide 2.5s cubic-bezier(.68,-0.55,.27,1.55) infinite alternate;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0) scale(1);
+        fill:#38bdf8;
+        opacity:0.9;
+    }
+    50%{
+        transform: translateX(200px) scale(1.2);
+        fill:#22c55e;
+        opacity:1;
+    }
+    100%{
+        transform: translateX(400px) scale(0.9);
+        fill:#e879f9;
+        opacity:0.85;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<svg viewBox="0 0 600 200">
+    <defs>
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.5"/>
+        </filter>
+    </defs>
+
+    <circle cx="50" cy="100" r="30" filter="url(#shadow)"/>
+</svg>
+
+</body>
+</html>
